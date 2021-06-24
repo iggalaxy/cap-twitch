@@ -1,0 +1,29 @@
+{
+  "api": {
+    "name": "TwitchPlugin",
+    "slug": "twitchplugin",
+    "docs": "",
+    "tags": [],
+    "methods": [
+      {
+        "name": "openStream",
+        "signature": "(options: { username: string; }) => any",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "{ username: string; }"
+          }
+        ],
+        "returns": "any",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [],
+        "slug": "openstream"
+      }
+    ],
+    "properties": []
+  },
+  "interfaces": [],
+  "enums": []
+}

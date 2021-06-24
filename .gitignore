@@ -1,5 +1,5 @@
 # node files
-dist
+# dist # INCLUDE BUILD AS IMPORTS ARE DONE VIA GITHUB
 node_modules
 
 # iOS files

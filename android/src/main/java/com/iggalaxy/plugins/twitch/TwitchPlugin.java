@@ -165,10 +165,11 @@ public class TwitchPlugin extends Plugin {
                 @Override
                 public void onAnimationEnd(Animator animation) {
                     super.onAnimationEnd(animation);
+                    if (webView == null) return;
+
                     webView.setVisibility(View.GONE);
                     ((ViewGroup) webView.getParent()).removeView(webView);
                     webView.destroy();
-
                     webView = null;
                 }
             }

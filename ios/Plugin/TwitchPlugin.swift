@@ -73,35 +73,6 @@ extension UIView {
     }
 }
 
-//class StreamViewController: SFSafariViewController, WKUIDelegate {
-//
-//
-////    var webView: SFSafari
-////
-////    override func loadView() {
-////        let webConfiguration = WKWebViewConfiguration()
-////
-////        webView = WKWebView(frame: .zero, configuration: webConfiguration)
-////        webView.uiDelegate = self
-////        view = webView
-////    }
-////    override func viewDidLoad() {
-////        super.viewDidLoad()
-////
-////        let myURL = URL(string: "https://player.twitch.tv/?channel=uhSnow&parent=www.iggalaxy.com")
-////        let myRequest = URLRequest(url: myURL!)
-////        webView.load(myRequest)
-////    }
-////
-////    override func viewDidAppear(_ animated: Bool) {
-////        webView.top = 100
-//////        webView.bottom = 30
-////        webView.left = 20
-//////        webView.right = 20
-////        webView.width = 400
-////        webView.height = 300
-////    }
-//}
 class StreamViewController: UIViewController, WKUIDelegate {
 
     var webView: WKWebView!
@@ -110,7 +81,6 @@ class StreamViewController: UIViewController, WKUIDelegate {
     override func loadView() {
         let webConfiguration = WKWebViewConfiguration()
         webView = WKWebView(frame: .zero, configuration: webConfiguration)
-//        webView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         
         webView.isOpaque = false
         webView.backgroundColor = .black
@@ -141,77 +111,21 @@ class StreamViewController: UIViewController, WKUIDelegate {
         
         self.loadedUrl = url
     }
-
-//    override func viewDidAppear(_ animated: Bool) {
-//        webView.top = 100
-////        webView.bottom = 30
-//        webView.left = 20
-////        webView.right = 20
-//        webView.width = 400
-//        webView.height = 300
-//    }
 }
 
-
-/**
- * Please read the Capacitor iOS Plugin Development Guide
- * here: https://capacitorjs.com/docs/plugins/ios
- */
 @objc(TwitchPlugin)
 public class TwitchPlugin: CAPPlugin {
     private let implementation = Twitch()
     
-//    let streamView = StreamViewController.init(url: URL(string: "https://staging.igg.network")!)
     let streamView = StreamViewController()
 
 
-    @objc func echo(_ call: CAPPluginCall) {
-        let value = call.getString("value") ?? ""
-
-//
-//        let alertController = UIAlertController(title: "Test", message: value, preferredStyle: .alert)
-//        alertController.addAction(UIAlertAction(title: "OK", style: .default))
-        
-//        let webConfig = WKWebViewConfiguration()
-//        let webView = WKWebView(frame: .zero, configuration: webConfig)
-//
-//        webView.load(URLRequest(url: URL(string: "https://staging.igg.network")!))
-//        streamView.loadViewIfNeeded()
-        
+    @objc func openStream(_ call: CAPPluginCall) {
+        let username = call.getString("username") ?? ""
         
         DispatchQueue.main.async {
-            
-            self.streamView.loadUrl(url: "https://player.twitch.tv/?channel=" + value + "&parent=www.iggalaxy.com")
-            
-//            let vc = self.bridge?.viewController
-//
-//            vc!.addChild(self.streamView)
-//            vc!.view.addSubview(self.streamView.view)
-//            self.streamView.didMove(toParent: vc)
-            
-            
+            self.streamView.loadUrl(url: "https://player.twitch.tv/?channel=" + username + "&parent=www.iggalaxy.com")
             self.bridge?.viewController!.present(self.streamView, animated: true)
-            
-//            self.bridge?.viewController!.addChild(webView);
-//            self.bridge?.viewController!.add(StreamViewController())
-//            self.bridge?.viewController!.addChild(streamView)
-//            self.bridge?.viewController!.view.addSubview(streamView.view)
-//            streamView.didMove(toParent: self.bridge?.viewController!)
         }
-
-//        call.resolve([
-//            "value": implementation.echo(value)
-//        ])
-
-//         let message = call.getString("message") ?? ""
-//         let alertController = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
-// ​
-//         alertController.addAction(UIAlertAction(title: "Ok", style: .default))
-// ​
-//         DispatchQueue.main.async {
-//           self.bridge.viewController.present(alertController, animated: true, completion: nil)
-//         }
-
-//         call.resolve();
     }
 }

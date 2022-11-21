@@ -7,7 +7,7 @@
     "methods": [
       {
         "name": "openStream",
-        "signature": "(options: { username: string; }) => any",
+        "signature": "(options: { username: string; }) => Promise<void>",
         "parameters": [
           {
             "name": "options",
@@ -15,7 +15,7 @@
             "type": "{ username: string; }"
           }
         ],
-        "returns": "any",
+        "returns": "Promise<void>",
         "tags": [],
         "docs": "",
         "complexTypes": [],
@@ -25,5 +25,7 @@
     "properties": []
   },
   "interfaces": [],
-  "enums": []
+  "enums": [],
+  "typeAliases": [],
+  "pluginConfigs": []
 }

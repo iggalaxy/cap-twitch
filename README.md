@@ -23,14 +23,12 @@ npx cap sync
 ### openStream(...)
 
 ```typescript
-openStream(options: { username: string; }) => any
+openStream(options: { username: string; }) => Promise<void>
 ```
 
 | Param         | Type                               |
 | ------------- | ---------------------------------- |
 | **`options`** | <code>{ username: string; }</code> |
-
-**Returns:** <code>any</code>
 
 --------------------
 

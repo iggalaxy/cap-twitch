@@ -9,6 +9,7 @@
         android:layout_height="125dp"
         android:layout_weight="1"
         android:background="@color/dark_purple"
+        android:color="@color/gray_400"
         android:text="Close" />
 
     <WebView

@@ -3,14 +3,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/closeButton"
-        android:layout_width="match_parent"
-        android:layout_height="125dp"
-        android:layout_weight="1"
-        android:background="@color/dark_purple"
-        android:color="@color/gray_400"
-        android:text="Close" />
+  <Button
+    android:id="@+id/closeButton"
+    android:layout_width="match_parent"
+    android:layout_height="64dp"
+    android:layout_weight="1"
+    android:background="@color/dark_purple"
+    android:color="@color/gray_400"
+    android:text="CLOSE"
+    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+    android:textColor="@color/gray_400"
+    android:typeface="sans" />
 
     <WebView
         android:id="@+id/twitchWebView"
